@@ -154,10 +154,10 @@ Version:	1.1
 	opacity:0.5;
 }
 .slider .single-slider h1 {
-	font-size: 28px;
-	font-weight: 600;
-	line-height: 35px;
-}
+		font-size: 30px;
+		font-weight: 600;
+		line-height: 35px;
+	}
 .slider .single-slider .text {
 	margin-top: 80px;
 }

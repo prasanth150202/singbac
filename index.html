@@ -599,75 +599,39 @@
 			
 				<!--/ End Footer Area -->
 				<!-- Popup Form -->
-				<div id="popup-box" class="modal">
-					<div class="content1">
+					<div id="popup-box" class="modal">
+						<div class="content1">
 						<div class="imgcon">
 							<img src="img/employees-working-together-medium-shot.jpg" alt="Popup Image" class="popup-image">
 						</div>
-						<div class="popup-text">
-							<h1>Get in Touch</h1>
-							<p></p>
-							<a href="#" class="close-button">&times;</a>
-				
-							<form id="popup-form" method="post">
-								<label for="name">Name:</label>
-								<input type="text" id="name" name="name" required>
-								<br>
-								<label for="email">Email:</label>
-								<input type="email" id="email" name="email" required>
-								<br>
-								<label for="phone">Phone:</label>
-								<input type="text" id="phone" name="phone" required>
-								<br>
-								<label for="country">Country:</label>
-								<input type="text" id="country" name="country" required>
-								<br>
-								<label for="message">Message:</label>
-								<input type="text" id="message" name="message" required>
-								<br>
-								<button type="submit" id="submitButton" disabled>Submit</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				
-				<script>
-				document.getElementById('popup-form').addEventListener('input', () => {
-					const isValid = document.getElementById('popup-form').checkValidity();
-					document.getElementById('submitButton').disabled = !isValid;
-				});
-				
-				document.getElementById('popup-form').addEventListener('submit', async (event) => {
-					event.preventDefault();
-					document.getElementById('submitButton').disabled = true;
-				
-					const formData = new FormData(event.target);
-				
-					try {
-						const response = await fetch("https://script.google.com/macros/s/AKfycbxFo-VX-emfvPUfJMgA7bIRsCfrfp85P-k8Xaf_IuE/dev", {
-							method: 'POST',
-							body: formData
-						});
-						const data = await response.json();
-				
-						document.getElementById('submitButton').disabled = false;
-				
-						if (data.result === "success") {
-							document.getElementById('popup-form').reset();
-							window.location.href = 'thankyou.html';
-						} else {
-							setTimeout(() => {
-								window.location.reload();
-							}, 2500);
-						}
-					} catch (error) {
-						document.getElementById('submitButton').disabled = false;
-						document.getElementById('popup-form').reset();
-						alert('An error occurred: ' + error.message);
-					}
-				});
-				</script>
-				
+								<div class="popup-text">
+									<h1>Get in Touch</h1>
+									<p></p>
+									<a href="#" class="close-button">&times;</a>
+									
+									<form id="popup-form" method="post" action="https://script.google.com/macros/s/AKfycbyo0FvWz7ZjM2BAos0MyIvdSdelJNPLIjbl9y0dfrdDWb_jBzYgSCEoEtrFgjD2MVY/exec">
+									<label for="name">Name:</label>
+									<input type="text" id="name" name="name" required>
+									<br>
+									<label for="email">Email:</label>
+									<input type="email" id="email" name="email" required>
+									<br>
+									<label for="phone">Phone:</label>
+									<input type="text" id="phone" name="phone" required>
+									<br>
+									<label for="country">Country:</label>
+									<input type="text" id="country" name="country" required>
+									<br>
+									<label for="message">Message:</label>
+									<input type="text" id="message" name="message" required>	
+									<br>
+									<button type="submit" id="submitButton">Submit</button>
+									</form>
+								</div>
+								</div>
+							</div>
+						
+						
 					
 				<script src="js/jquery.min.js"></script>
 				<!-- jquery Migrate JS -->

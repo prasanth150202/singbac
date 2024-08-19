@@ -247,9 +247,9 @@
 								<i ><h1 style=" color: #0a4c44;">1</h1></i>
 								<h4><a href="popup-box">Fulfill Legal Requirements</a></h4>
 								<br>
-								<p><b>Corporate Secretary:</b> Appoint a secretary to handle compliance, file annual returns, organize AGMs, and manage dividends.
-									<br><b>Nominee Director:</b> Hire a Singaporean resident to fulfill the director role. They handle legal responsibilities but not business decisions.
-									<br><b>Registered Address:</b> Obtain a local address for your company’s legal documents and correspondence.</p>	
+								<p><li>Corporate Secretary: Appoint a secretary to handle compliance, file annual returns, organize AGMs, and manage dividends.</li>
+									<li>Nominee Director:Hire a Singaporean resident to fulfill the director role. They handle legal responsibilities but not business decisions.</li>
+									<li>Registered Address: Obtain a local address for your company’s legal documents and correspondence.</li></p>	
 							</div>
 							<!-- End Single Service -->
 						</div>
@@ -599,39 +599,41 @@
 		
 			<!--/ End Footer Area -->
 			<!-- Popup Form -->
-			<div id="popup-box" class="modal">
-				<div class="content1">
+				<div id="popup-box" class="modal">
+					<div class="content1">
 					<div class="imgcon">
-				<img src="img/employees-working-together-medium-shot.jpg" alt="Popup Image" class="popup-image"></div>
-				<div class="popup-text">
-					<h1>Get in Touch</h1>
-					<p></p>
-					<a href="#" class="close-button">&times;</a>
-			
-					<form id="popup-form"  method="POST" 
-					action="https://script.google.com/macros/s/AKfycbx7Zu08KZtMLnLWjrzT9UPWh_2rVhCRuuMAA3vwtKr_BViPuovQHuXifAv2JuL0gz6i/exec"  >
+						<img src="img/employees-working-together-medium-shot.jpg" alt="Popup Image" class="popup-image">
+					</div>
+							<div class="popup-text">
+								<h1>Get in Touch</h1>
+								<p></p>
+								<a href="#" class="close-button">&times;</a>
+								
+								<form id="popup-form" method="POST" action="https://script.google.com/macros/s/AKfycbxFo-VX-emfvPUfJMgA7bIRsCfrfp85P-k8Xaf_IuE/dev">
+								<label for="name">Name:</label>
+								<input type="text" id="name" name="name" required>
+								<br>
+								<label for="email">Email:</label>
+								<input type="email" id="email" name="email" required>
+								<br>
+								<label for="phone">Phone:</label>
+								<input type="text" id="phone" name="phone" required>
+								<br>
+								<label for="country">Country:</label>
+								<input type="text" id="country" name="country" required>
+								<br>
+								<label for="message">Message:</label>
+								<input type="text" id="message" name="message" required>	
+								<br>
+								<button type="submit">Submit</button>
+								</form>
+							</div>
+							</div>
+						</div>
+				<script>
 					
-					<label for="name">Name:</label>
-					<input type="text" id="name" name="name" required>
-					<br>
-					<label for="email">Email:</label>
-					<input type="email" id="email" name="email" required>
-					<br>
-					<label for="purpose">Phone:</label>
-					<input type="number" id="purpose" name="purpose" required>
-					<br>
-					<label for="country">Country:</label>
-					<input type="text" id="country" name="country" required>
-					<br>
-					<label for="country">Message:</label>
-					<input type="text" id="Message" name="Message" required>
-					<br>
-					<button type="submit">Submit</button>
-					</form>
-				</div>
-				</div>
-			</div>
-			<!-- jquery Min JS -->
+				  </script>
+				  
 			<script src="js/jquery.min.js"></script>
 			<!-- jquery Migrate JS -->
 			<script src="js/jquery-migrate-3.0.0.js"></script>

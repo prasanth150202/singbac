@@ -241,12 +241,13 @@
 			}
 			
 			.popup-image-container {
-				display: none ; /* Add horizontal padding if needed */
+				flex: 1;
+				justify-content: center; /* Center image horizontally in the container */
+				padding: 0 20px; /* Add horizontal padding if needed */
 			}
 			
 			.popup-image {
-				max-width: 100%; /* Ensure image fits within the container */
-				height: auto; /* Maintain aspect ratio */
+				display: none; /* Maintain aspect ratio */
 			}
 			
 			.imgcon {

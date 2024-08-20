@@ -33,12 +33,12 @@
 .button-65 {
   appearance: none;
   backface-visibility: hidden;
-  background-color: #0d914f;
+  background-color: #ffffff;
   border-radius: 10px;
   border-style: none;
   box-shadow: none;
   box-sizing: border-box;
-  color: #fff;
+  color: red; /* Change text color to red */
   cursor: pointer;
   display: inline-block;
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -155,126 +155,130 @@
     text-decoration: none;
 }
 /* Ensure modal is hidden by default */
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	align-items: center;
-	justify-content: center;
-	z-index: 1000; /* Ensure it's on top */
-}
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		align-items: center;
+		justify-content: center;
+		z-index: 1000; /* Ensure it's on top */
+	}
 
 
-.modal h1{
-    color: #0a4c44  ;
-    font-weight:600 ;
-}
-.content1 {
-    display: flex;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 760px;
-    position: relative;
-    gap: 20px; /* Adds spacing between image and text */
-    color: #0a4c44;
-}
-
-.popup-image-container {
-    flex: 1; /* Allows the image container to grow equally */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.popup-image {
-    max-width: 100%; /* Ensure image does not exceed container width */
-    height: 550px; /* Maintain aspect ratio */
-    object-fit: cover;  
-    border-radius: 30px;
-}
-
-.popup-text-container {
-    flex: 1; /* Allows the text container to grow equally */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-}
-
-.close-button {
-    color: #fe0606;
-    font-size: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-#popup-form {
-	display: flex;
-	flex-direction: column;
-}
-
-
-.imgcon {
-	width: 100%; /* Make the image container responsive */
-	max-width: 400px; /* Set a maximum width */	    /* Center the image horizontally and provide margin */
-	
-    border-radius: 20px;
-	overflow: hidden; /* Ensure image fits within container */
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 768px) {
+	.modal h1{
+		color: #0a4c44  ;
+		font-weight:600 ;
+	}
 	.content1 {
-		flex-direction: column; 
-        width: 300px;
-        height:90%;/* Stack child elements vertically */
+		display: flex;
+		background: white;
+		padding: 20px;
+		border-radius: 8px;
+		width: 80%;
+		max-width: 760px;
+		position: relative;
+		gap: 20px; /* Adds spacing between image and text */
+		color: #0a4c44;
 	}
-	
+
 	.popup-image-container {
-		flex: 1;
-		justify-content: center; /* Center image horizontally in the container */
-		padding: 0 20px; /* Add horizontal padding if needed */
+		flex: 1; /* Allows the image container to grow equally */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
 	}
-	
+
 	.popup-image {
-		max-width: 100%; /* Ensure image fits within the container */
-		height: auto; /* Maintain aspect ratio */
+		max-width: 100%; /* Ensure image does not exceed container width */
+		height: 550px; /* Maintain aspect ratio */
+		object-fit: cover;  
+		border-radius: 30px;
 	}
-	
+
+	.popup-text-container {
+		flex: 1; /* Allows the text container to grow equally */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+	}
+
+	.close-button {
+		color: #fe0606;
+		font-size: 30px;
+		text-decoration: none;
+		cursor: pointer;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+	#popup-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+
 	.imgcon {
-		width: 100%; /* Make image container full width on mobile */
-		max-width: none; /* Remove maximum width restriction on mobile */
-		margin: 20px 0; /* Adjust margin for mobile */
+		width: 100%; /* Make the image container responsive */
+		max-width: 400px; /* Set a maximum width */	    /* Center the image horizontally and provide margin */
+		
+		border-radius: 20px;
+		overflow: hidden; /* Ensure image fits within container */
 	}
-	
-	#popup-form input {
-        margin-bottom: 0px;
-        padding: 0px;
-    }
-}
+
+	/* Media Query for Mobile Devices */
+	@media (max-width: 768px) {
+		.content1 {
+			flex-direction: column; 
+			width: 300px;
+			height:90%;/* Stack child elements vertically */
+		}
+		
+		.popup-image-container {
+			flex: 1;
+			justify-content: center; /* Center image horizontally in the container */
+			padding: 0 20px; /* Add horizontal padding if needed */
+		}
+		
+		.popup-image {
+			max-width: 100%; /* Ensure image fits within the container */
+			height: auto; /* Maintain aspect ratio */
+		}
+		
+		.imgcon {
+			width: 100%; /* Make image container full width on mobile */
+			max-width: none; /* Remove maximum width restriction on mobile */
+			margin: 20px 0; /* Adjust margin for mobile */
+		}
+		
+		#popup-form input {
+			margin-bottom: 0px;
+			padding: 0px;
+		}
+	}
 
 
- .modal button[type="submit"] {
-	padding: 10px;
-	background: #0a4c44;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-  }
+	.modal button[type="submit"] {
+		padding: 10px;
+		background: #0a4c44;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
   
 .logofoot   {
     background-color: white;
     border-radius: 10px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+
 }
 
 
@@ -979,7 +983,7 @@ body{
     border-radius: 8px; /* Optional: Rounded corners */
     padding: 20px;
     background-color: #0a4c44; /* Background color */
-    color: #fff; /* White text color */
+ 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Box shadow */
     transition: transform 0.3s ease; /* Smooth scaling on hover */
     display: flex;
@@ -1017,7 +1021,8 @@ body{
 .single-schedule a {
     display: inline-block;
     margin-top: 10px;
-    color: #f0f0f0; /* Light grey link color */
+    color: #0a4c44; /* Light grey link color */
+	font-weight:bold;
     text-decoration: none;
 }
 
@@ -4431,6 +4436,12 @@ body{
 	color:#fff;
 }
 
+
+.footer .imagecontainer1{
+	width:200px;
+	height: auto;
+	align-items: center;
+}
 /*=========================
 	End Footer CSS
 ===========================*/

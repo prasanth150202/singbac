@@ -28,10 +28,13 @@ Version:	1.1
 * Animate Scroll JS
 * Stellar JS
 * Google Maps JS
-* Preloader JS
+* Preloader JS	
 =========================================
-[End Activation Code]
+[End Activation Code]	
 =========================================*/ 
+
+
+  
 (function($) {
     "use strict";
      $(document).on('ready', function() {

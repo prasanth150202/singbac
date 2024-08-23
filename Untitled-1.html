@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Form</title>
+    <style>
+        /* Modal Styles */
+        .modal {
+    /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .content1 {
+            background-color: #fefefe;
+            margin: 5% auto; /* Centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Maximum width for larger screens */
+        }
+
+        .popup-image {
+            width: 100%; /* Responsive image */
+            height: auto;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
+
+        .dropdown-container {
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
+
+        .dropdown-select {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .dropdown-option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-option:hover {
+            background-color: #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content1 {
+                width: 95%; /* Increase responsiveness on smaller screens */
+            }
+        }
+        .error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none; /* Hide by default */
+    margin-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+
+<div id="popup-box" class="modal">
+    <div class="content1">
+        <div class="imgcon">
+            <img src="img/employees-working-together-medium-shot.jpg" alt="Popup Image" class="popup-image">
+        </div>
+        <div class="popup-text">
+            <h1>Book A Consultation</h1>
+            <p></p>
+            <a href="#" class="close-button">&times;</a>
+
+            <form class="row g-3 needs-validation" method="post" id="popup-form" novalidate>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter Your Name" name="Name" required>
+                <span class="error-message" id="name-error">Please enter your name.</span>
+            
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="Email Address" required>
+                <span class="error-message" id="email-error">Please enter a valid email address.</span>
+            
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <input type="text" id="country-code-search" name="country" class="dropdown-input" placeholder="Search Country Code" required>
+                        <div id="dropdown-options" class="dropdown-select">
+                            <div class="dropdown-option" data-value="+1">+1 (USA)</div>
+                            <div class="dropdown-option" data-value="+44">+44 (UK)</div>
+                            <div class="dropdown-option" data-value="+91">+91 (India)</div>
+                            <div class="dropdown-option" data-value="+61">+61 (Australia)</div>
+                            <div class="dropdown-option" data-value="+81">+81 (Japan)</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Enter Your Phone Number" name="Mobile" id="phone" minlength="10" maxlength="10" required>
+                <span class="error-message" id="phone-error">Please enter a valid phone number with 10 digits.</span>
+            
+                <label class="form-label">Message</label>
+                <input type="text" id="message" class="form-control" placeholder="Message" name="message" required>
+                <span class="error-message" id="message-error">Please enter a message.</span>
+            
+                <button type="submit" value="Submit" id="submitButton" data-mdb-ripple-init>Submit form</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+
+    const searchInput = document.getElementById('country-code-search');
+    const dropdownOptions = document.getElementById('dropdown-options');
+
+    searchInput.addEventListener('click', function() {
+        dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+        searchInput.focus();
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!document.querySelector('.dropdown').contains(event.target)) {
+            dropdownOptions.style.display = 'none';
+        }
+    });
+
+    searchInput.addEventListener('input', function() {
+        const search = this.value.toLowerCase();
+        const options = dropdownOptions.querySelectorAll('.dropdown-option');
+
+        options.forEach(function(option) {
+            const text = option.textContent.toLowerCase();
+            option.style.display = text.includes(search) || search === '' ? 'block' : 'none';
+        });
+    });
+
+    dropdownOptions.addEventListener('click', function(e) {
+        if (e.target.classList.contains('dropdown-option')) {
+            searchInput.value = e.target.textContent;
+            dropdownOptions.style.display = 'none';
+        }
+    });
+
+    dropdownOptions.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+    });
+
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            let isValid = true;
+            
+            // Clear previous error messages
+            document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
+
+            // Check validity of each field
+            const name = document.getElementById('name');
+            if (!name.value) {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const email = document.getElementById('email');
+            if (!email.validity.valid) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const phone = document.getElementById('phone');
+            if (!phone.value || phone.value.length !== 10) {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            }
+
+            const message = document.getElementById('message');
+            if (!message.value) {
+                document.getElementById('message-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!isValid) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            document.getElementById('popup-box').style.display = 'none';
+            document.getElementById('submitButton').disabled = true;
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch("https://script.google.com/macros/s/AKfycbw9i0rWo8iavAXTM1ItKqYW0yMdfHDTRrxYyquwlVTpYTfLxMLa_120yndn_KC6txzv/exec", { method: 'POST', body: formData });
+                const data = await response.json();
+
+                document.getElementById('submitButton').disabled = false;
+                if (data.result === "success") {
+                    form.reset();
+                    window.location.href = 'thankyou.html';
+                } else {
+                    document.querySelector('.modal-backdrop').classList.remove('show');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2500);
+                }
+            } catch (error) {
+                document.getElementById('submitButton').disabled = false;
+                form.reset();
+                alert('An error occurred: ' + error.message);
+            }
+        }, false);
+    });
+});
+
+</script>
+
+</body>
+</html>
